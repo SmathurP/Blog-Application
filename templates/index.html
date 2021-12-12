@@ -1,0 +1,15 @@
+{%extends 'base.html'%}
+{%block title%}Blog {%endblock%}
+{% block content%}
+<h1>Posts</h1>
+
+<ul>
+{% for post in object_list%}
+
+    <br><li><a style="font-size: 156%;"href="{%url 'blogapp:detail' post.id%}"> 
+    {{post.title}}</a> - {{post.author}}<br><p>{{post.date}}<br>
+    {{post.body}}</p></li>
+    <button><a href="{%url 'blogapp:update' post.id%}">EDIT</a></button><span><button style="margin-left: 2%;"><a href="{%url 'blogapp:delete' post.id%}">DELETE</a></button></span><br>
+{%endfor%}
+</ul>
+{%endblock%}
